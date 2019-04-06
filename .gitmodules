@@ -1,0 +1,3 @@
+[submodule "avr-core"]
+	path = avr-core
+	url = https://github.com/mads256c/avr-core
