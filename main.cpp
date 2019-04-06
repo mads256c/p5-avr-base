@@ -8,15 +8,16 @@ int main()
   Pins::PinMode(0, true);
   Pins::PinMode(1, true);
 
-  Serial::Begin(9600);
+  Serial::Begin(115200);
 
-  for (uint8_t i = 0; i < 0xFF; i++)
+  for (uint16_t i = 0; i < 0xFFFF; i++)
   {
-    Serial::TransmitUint8(i, 16);
-    Serial::TransmitString("\r\n");
+    Serial::TransmitUint16(i, 10);
+    Serial::Transmit('\r');
+    Serial::Transmit('\n');
   }
 
-  Serial::TransmitUint8(255, 16);
+  Serial::TransmitUint16(0xFFFF, 10);
     Serial::TransmitString("\r\n");
 
   while (true)

@@ -14,6 +14,8 @@ ARDUINO_LIBS =
 ISP_PROG = usbasp-clone
 ISP_PORT = USB
 
+MONITOR_BAUDRATE = 115200
+
 include /usr/share/arduino/Arduino.mk
 
 ispupload:
