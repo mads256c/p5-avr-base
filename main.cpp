@@ -10,16 +10,17 @@ int main()
 
   Serial::Begin(9600);
 
-  while(true)
+  for (uint8_t i = 0; i < 0xFF; i++)
   {
-    const uint8_t c = Serial::Receive();
+    Serial::TransmitUint8(i, 16);
+    Serial::TransmitString("\r\n");
+  }
 
-    Serial::TransmitString("Got: ");
-    Serial::Transmit(c);
-    Serial::Transmit('\r');
-    Serial::Transmit('\n');
+  Serial::TransmitUint8(255, 16);
+    Serial::TransmitString("\r\n");
 
-    //_delay_ms(1000);
+  while (true)
+  {
   }
 
   return 0;
