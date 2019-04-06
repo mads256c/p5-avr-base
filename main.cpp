@@ -10,15 +10,14 @@ int main()
 
   Serial::Begin(115200);
 
-  for (uint16_t i = 0; i < 0xFFFF; i++)
+  for (int16_t i = -32768; i < 32767; i++)
   {
-    Serial::TransmitUint16(i, 10);
+    Serial::TransmitInt16(i);
     Serial::Transmit('\r');
     Serial::Transmit('\n');
-  }
 
-  Serial::TransmitUint16(0xFFFF, 10);
-    Serial::TransmitString("\r\n");
+    _delay_ms(1000);
+  }
 
   while (true)
   {
