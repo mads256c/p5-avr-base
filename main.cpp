@@ -1,7 +1,9 @@
 #include "avr-core/Pins.hpp"
 #include "avr-core/Serial.hpp"
+#include "avr-core/Util.hpp"
 
 #include <util/delay.h>
+#include <avr/power.h>
 
 int main()
 {
@@ -10,14 +12,7 @@ int main()
 
   Serial::Begin(115200);
 
-  for (int16_t i = -32768; i < 32767; i++)
-  {
-    Serial::TransmitInt16(i);
-    Serial::Transmit('\r');
-    Serial::Transmit('\n');
-
-    _delay_ms(1000);
-  }
+  Serial::TransmitInt<int8_t>(-128);
 
   while (true)
   {

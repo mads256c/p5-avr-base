@@ -7,6 +7,13 @@ BOARDS_TXT = /usr/share/arduino/hardware/archlinux-arduino/avr/boards.txt
 ARDUINO_VAR_PATH = /usr/share/arduino/hardware/archlinux-arduino/avr/variants
 BOOTLOADER_PARENT = /usr/share/arduino/hardware/archlinux-arduino/avr/bootloaders
 
+### CXXFLAGS_STD
+### Set the C++ standard to be used during compilation. Documentation (https://github.com/WeAreLeka/Arduino-Makefile/blob/std-flags/arduino-mk-vars.md#cxxflags_std)
+CXXFLAGS_STD      = -std=gnu++17
+
+### CXXFLAGS
+### Flags you might want to set for debugging purpose. Comment to stop.
+CXXFLAGS         += -pedantic -Wall -Wextra
 
 BOARD_TAG    = uno
 ARDUINO_LIBS =
