@@ -11,39 +11,20 @@ int main()
 {
   Pins::PinMode(0, true);
   Pins::PinMode(1, true);
-
-  Serial::Begin(115200);
-
+  Pins::PinMode(2, true);
   Pins::PinMode(9, true);
-  Pins::PinMode(10, true);
 
+  Pins::DigitalWrite(2, true);
+  
   Servo::Begin();
 
-  const uint8_t c = 1;
 
-  uint16_t i = Servo::OCR1A_MAX;
-  bool down = true;
-	
   while(true)
-	{
-    if (i <= Servo::OCR1A_MIN) down = false;
-    if (i >= Servo::OCR1A_MAX) down = true;
-
-
-		if (down)
-    {
-      i -= c;
-    }
-
-    else
-    {
-      i += c;
-    }
-
-    Servo::SetPosition(i);
-
-    _delay_ms(1);
-	}
-
+  {
+    Servo::SetPosition(Servo::OCR1A_MIN);
+    _delay_ms(1000);
+    Servo::SetPosition(Servo::OCR1A_MAX);
+    _delay_ms(1000);
+  }
   return 0;
 }

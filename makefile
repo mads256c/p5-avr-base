@@ -27,3 +27,6 @@ include /usr/share/arduino/Arduino.mk
 
 ispupload:
 		sudo avrdude -p m328p -c $(ISP_PROG) -P $(ISP_PORT) -U $(OBJDIR)/p5-avr-base.elf
+
+fuseupload:
+		sudo avrdude -p m328p -c $(ISP_PROG) -P $(ISP_PORT) -U lfuse:w:fuses/low_fuse_val.hex:h -U hfuse:w:fuses/high_fuse_val.hex:h
