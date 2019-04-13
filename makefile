@@ -5,6 +5,7 @@ AVRDUDE_CONF = /etc/avrdude.conf
 ARDUINO_CORE_PATH = /usr/share/arduino/hardware/archlinux-arduino/avr/cores/arduino
 BOARDS_TXT = /usr/share/arduino/hardware/archlinux-arduino/avr/boards.txt
 ARDUINO_VAR_PATH = /usr/share/arduino/hardware/archlinux-arduino/avr/variants
+ARDUINO_LIB_PATH = /usr/share/arduino/hardware/archlinux-arduino/avr/libraries
 BOOTLOADER_PARENT = /usr/share/arduino/hardware/archlinux-arduino/avr/bootloaders
 
 ### CXXFLAGS_STD
@@ -16,7 +17,7 @@ CXXFLAGS_STD      = -std=gnu++17
 CXXFLAGS         += -pedantic -Wall -Wextra
 
 BOARD_TAG    = uno
-ARDUINO_LIBS =
+ARDUINO_LIBS = SoftwareSerial
 
 ISP_PROG = usbasp-clone
 ISP_PORT = USB
